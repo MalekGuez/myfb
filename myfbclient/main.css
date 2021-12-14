@@ -44,3 +44,5 @@ button {
     height: 30px;
     margin-bottom: 10px;
 }
+
+.checkbox label { font-size: 12px; line-height: 10px; margin-bottom: 12px;}
