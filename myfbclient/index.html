@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>My FB</title>
+        <meta name="viewport" content="viewport-fit=cover, width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">      
+        <link rel="stylesheet" href="main.css"></style>
+        <script src="vue.min.js"></script>
+        <script src="SqlPrd.js"></script>
+        <script src="RemoteSqlPrd.js"></script>
+    </head>
+    <body>
+        <div class="main" id="app">
+            <h1>{{nav.views[nav.currentViewId].titre}} {{connexion.prenom}} {{connexion.nom}}</h1>
+            <vw-connexion 
+                v-if="nav.currentViewId == 0"
+                v-bind:connexion="connexion"
+                v-bind:db="db"
+                v-bind:nav="nav">
+            </vw-connexion>
+            <vw-fil-actualite
+                v-if="nav.currentViewId == 1"
+                v-bind:messages="messages"
+                v-bind:connexion="connexion"
+                v-bind:texte="texte"
+                v-bind:db="db">
+            </vw-fil-actualite>
+            <vw-creer-compte 
+                v-if="nav.currentViewId == 2"
+                v-bind:connexion="connexion"
+                v-bind:db="db"
+                v-bind:nav="nav">
+            </vw-connexion>
+        </div>
+        <script src="main.js"></script>
+        <script src="vw-connexion.js"></script>
+        <script src="vw-fil-actualite.js"></script>
+        <script src="vw-creer-compte.js"></script>
+    </body>
+</html>
